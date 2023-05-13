@@ -81,3 +81,22 @@ aws dynamodb create-table \
                 }
             }
         ]"
+
+# Aguarda a entrada do usuário
+
+read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+
+# Inserir um item
+
+aws dynamodb put-item \
+    --table-name Music \
+    --item file://./src/itemmusic.json
+
+# Aguarda a entrada do usuário
+
+read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+
+# Inserir múltiplos itens
+
+aws dynamodb batch-write-item \
+    --request-items file://./src/batchmusic.json
