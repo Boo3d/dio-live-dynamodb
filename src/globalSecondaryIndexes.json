@@ -1,0 +1,56 @@
+{
+    "GlobalSecondaryIndexes": [
+        {
+            "IndexName": "Email-index",
+            "KeySchema": [
+                {
+                    "AttributeName": "Email",
+                    "KeyType": "HASH"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "ALL"
+            },
+            "ProvisionedThroughput": {
+                "ReadCapacityUnits": 10,
+                "WriteCapacityUnits": 5
+            }
+        },
+        {
+            "IndexName": "FullNameEmail-index",
+            "KeySchema": [
+                {
+                    "AttributeName": "FullName",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "Email",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "ALL"
+            },
+            "ProvisionedThroughput": {
+                "ReadCapacityUnits": 10,
+                "WriteCapacityUnits": 5
+            }
+        },
+        {
+            "IndexName": "Password-index",
+            "KeySchema": [
+                {
+                    "AttributeName": "Password",
+                    "KeyType": "HASH"
+                }
+            ],
+            "Projection": {
+                "ProjectionType": "ALL"
+            },
+            "ProvisionedThroughput": {
+                "ReadCapacityUnits": 10,
+                "WriteCapacityUnits": 5
+            }
+        }
+    ]
+}

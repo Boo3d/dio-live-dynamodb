@@ -1,0 +1,94 @@
+{
+    "Users": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "FullName": { "S": "Maria" },
+                    "UserName": { "S": "maria456" },
+                    "Email": { "S": "maria456@email.com" },
+                    "Password": { "S": "senha456" }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "FullName": { "S": "Pedro" },
+                    "UserName": { "S": "pedro789" },
+                    "Email": { "S": "pedro789@email.com" },
+                    "Password": { "S": "senha789" }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "FullName": { "S": "Ana" },
+                    "UserName": { "S": "ana111" },
+                    "Email": { "S": "ana111@email.com" },
+                    "Password": { "S": "senha111" }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "FullName": { "S": "Lucas" },
+                    "UserName": { "S": "lucas222" },
+                    "Email": { "S": "lucas222@email.com" },
+                    "Password": { "S": "senha222" }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "FullName": { "S": "Mariana" },
+                    "UserName": { "S": "mariana333" },
+                    "Email": { "S": "mariana333@email.com" },
+                    "Password": { "S": "senha333" }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "FullName": {"S": "Fernanda"},
+                    "UserName": {"S": "fernanda444"},
+                    "Email": {"S": "fernanda444@email.com"},
+                    "Password": {"S": "senha444"}
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "FullName": {"S": "Rafael"},
+                    "UserName": {"S": "rafael555"},
+                    "Email": {"S": "rafael555@email.com"},
+                    "Password": {"S": "senha555"}
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "FullName": {"S": "Gustavo"},
+                    "UserName": {"S": "gustavo666"},
+                    "Email": {"S": "gustavo666@email.com"},
+                    "Password": {"S": "senha666"}
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "FullName": {"S": "Juliana"},
+                    "UserName": {"S": "juliana777"},
+                    "Email": {"S": "juliana777@email.com"},
+                    "Password": {"S": "senha777"}
+                }
+            }
+        }
+    ]
+}

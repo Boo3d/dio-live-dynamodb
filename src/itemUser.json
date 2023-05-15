@@ -1,0 +1,6 @@
+{
+    "FullName": { "S": "João da Silva" },
+    "UserName": { "S": "joao123" },
+    "Email": { "S": "joao123@email.com" },
+    "Password": { "S": "senha123" }
+}
