@@ -11,24 +11,24 @@
 
 
 aws dynamodb create-table \
-    --table-name Music \
+    --table-name Users \
     --attribute-definitions \
-        AttributeName=Artist,AttributeType=S \
-        AttributeName=SongTitle,AttributeType=S \
-        AttributeName=AlbumTitle,AttributeType=S \
-        AttributeName=SongYear,AttributeType=S \
+        AttributeName=FullName,AttributeType=S \
+        AttributeName=UserName,AttributeType=S \
+        AttributeName=Email,AttributeType=S \
+        AttributeName=Password,AttributeType=S \
     --key-schema \
-        AttributeName=Artist,KeyType=HASH \
-        AttributeName=SongTitle,KeyType=RANGE \
+        AttributeName=FullName,KeyType=HASH \
+        AttributeName=UserName,KeyType=RANGE \
     --provisioned-throughput \
         ReadCapacityUnits=10,WriteCapacityUnits=5 \
     --global-secondary-indexes \
         "[
             {
-                \"IndexName\":\"AlbumTitle-index\",
+                \"IndexName\":\"Email-index\",
                 \"KeySchema\":[
                     {
-                        \"AttributeName\":\"AlbumTitle\",
+                        \"AttributeName\":\"Email\",
                         \"KeyType\":\"HASH\"
                     }
                 ],
@@ -41,14 +41,14 @@ aws dynamodb create-table \
                 }
             },
             {
-                \"IndexName\":\"ArtistAlbumTitle-index\",
+                \"IndexName\":\"FullNameEmail-index\",
                 \"KeySchema\":[
                     {
-                        \"AttributeName\":\"Artist\",
+                        \"AttributeName\":\"FullName\",
                         \"KeyType\":\"HASH\"
                     },
                     {
-                        \"AttributeName\":\"AlbumTitle\",
+                        \"AttributeName\":\"Email\",
                         \"KeyType\":\"RANGE\"
                     }
                 ],
@@ -61,36 +61,32 @@ aws dynamodb create-table \
                 }
             },
             {
-                \"IndexName\":\"SongTitleYear-index\",
-                \"KeySchema\":[
+                \"IndexName\": \"Password-index\",
+                \"KeySchema\": [
                     {
-                        \"AttributeName\":\"SongTitle\",
-                        \"KeyType\":\"HASH\"
-                    },
-                    {
-                        \"AttributeName\":\"SongYear\",
-                        \"KeyType\":\"RANGE\"
+                        \"AttributeName\": \"Password\",
+                        \"KeyType\": \"HASH\"
                     }
                 ],
-                \"ProvisionedThroughput\":{
-                    \"ReadCapacityUnits\":10,
-                    \"WriteCapacityUnits\":5
+                \"Projection\": {
+                    \"ProjectionType\": \"ALL\"
                 },
-                \"Projection\":{
-                    \"ProjectionType\":\"ALL\"
+                \"ProvisionedThroughput\": {
+                    \"ReadCapacityUnits\": 10,
+                    \"WriteCapacityUnits\": 5
                 }
             }
         ]"
 
 # Aguarda a entrada do usuário
 
-read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+read -n 1 -s -r -p "Pressione qualquer tecla para continuar...\n"
 
 # Inserir um item
 
 aws dynamodb put-item \
-    --table-name Music \
-    --item file://./src/itemmusic.json
+    --table-name Users \
+    --item file://./src/itemUser.json
 
 # Aguarda a entrada do usuário
 
@@ -99,4 +95,4 @@ read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
 # Inserir múltiplos itens
 
 aws dynamodb batch-write-item \
-    --request-items file://./src/batchmusic.json
+    --request-items file://./src/batchUsers.json
